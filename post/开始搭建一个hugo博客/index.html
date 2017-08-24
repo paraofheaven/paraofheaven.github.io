@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.26" />
 
-  <title>一个 BlackBurn 风格的Hugo博客 &middot; paraofheaven</title>
+  <title>Start a Hugo Blog In BlackBurn Feeling &middot; paraofheaven</title>
 
   
   
@@ -217,7 +217,7 @@
 
 
 <div class="header">
-  <h1>一个 BlackBurn 风格的Hugo博客</h1>
+  <h1>Start a Hugo Blog In BlackBurn Feeling</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -450,45 +450,11 @@ paginate = 10
 
 <h3 id="fluid-imgs">fluid_imgs</h3>
 
-<pre><code>
-
-<div class="pure-g">
-
-  
-  
-  
-  
-  <div class="class">
-    <div style="padding: 0 .2em">
-      <img
-        class="pure-img-responsive"
-        src="src"
-        alt="alt">
-    </div>
-  </div>
-  
-
-  
-  
-  
-  
-  <div class="class">
-    <div style="padding: 0 .2em">
-      <img
-        class="pure-img-responsive"
-        src="src"
-        alt="alt">
-    </div>
-  </div>
-  
-
-  
-  
-  
-  
-
-</div>
-
+<pre><code>&lt; fluid_imgs
+  &quot;class|src|alt&quot;
+  &quot;class|src|alt&quot;
+  &quot;... and so on&quot;
+&gt;
 </code></pre>
 
 <p>where each positional parameter is separated by the vertical bar (i.e., |).</p>
@@ -505,23 +471,13 @@ paginate = 10
 
 <h4 id="positional">Positional</h4>
 
-<pre><code>
-<img class="pure-img" src="https://paraofheaven.github.io/path/to/img" alt="">
-
+<pre><code class="language-toml">% fluid_img &quot;/path/to/img&quot; %
 </code></pre>
 
 <h4 id="named">Named</h4>
 
-<pre><code>
-<div class="pure-u-1-2">
-  <img class="pure-img" src="https://paraofheaven.github.io/path/to/img" alt="img description">
-</div>
-
-
-<div class="pure-u-1-3">
-  <img class="pure-img" src="https://paraofheaven.github.io/path/to/img" alt="img description">
-</div>
-
+<pre><code>% fluid_img class=&quot;pure-u-1-2&quot; src=&quot;/path/to/img&quot; alt=&quot;img description&quot; %
+% fluid_img class=&quot;pure-u-1-3&quot; src=&quot;/path/to/img&quot; caption=&quot;img description&quot; %
 </code></pre>
 
 <ul>
