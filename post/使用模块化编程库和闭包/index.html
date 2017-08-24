@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>使用模块化编程库和闭包 &middot; paraofheaven</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://paraofheaven.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://paraofheaven.github.io/css/my.css">
+  
+  
+    <script src="https://paraofheaven.github.io/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://paraofheaven.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/shot/"><i class='fa fa-photo fa-fw'></i>Shots</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/paraofheaven" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/paraofheaven" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://steamcommunity.com/id/paradiseyong" target="_blank"><i class="fa fa-steam-square fa-fw"></i>Steam</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>使用模块化编程库和闭包</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>11 Apr 2015, 22:20</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/%E6%A8%A1%E5%9D%97%E5%8C%96">模块化</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/%E9%97%AD%E5%8C%85">闭包</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>In parahome on 2015-04-11 by para</p>
+
+<p>1 问题及方案</p>
+
+<p>后台js代码规范度不好，怎么写的都有，不易维护、复用度低，我们不期全部使用backbone做到前端MVC，但使用模块化编程库做到模块化开发还是简单而有意义的。</p>
+
+<p>2 为什么要模块化</p>
+
+<p>时至今日，把脚本放在页面的底部，已不再是最佳的解决方案，甚至事与愿违，转化为性能的毒药。出于种种的原因，我们几乎从不直接在页面上插入js脚本，而是使用第三方的加载器，比如seajs或者requirejs。加载模块的概念，如果你是后端开发工程师，更不会陌生。Java、Python、C# 等等语言，都有<strong>include</strong>、<strong>import</strong>等功能。JavaScript 语言本身也有类似功能，但目前还处于草案阶段，需要等到ES6 标准得到主流浏览器支持后才能使用。 模块化编程是十分便捷的工程管理工具，简化了代码的结构，让文件的功能变得单一易维护复用度高。更重要的是管理了文件依赖和消除了命名冲突问题，并利用 AMD / CMD 规范统一了格式。如果工具提供了异步加载，还可以避免页面停止渲染被js阻塞。</p>
+
+<p></p>
+
+<p>参见Seajs的作者玉伯的一篇<a href="https://github.com/seajs/seajs/issues/547?utm_source=caibaojian.com">文章</a></p>
+
+<p>3 为什么要闭包</p>
+
+<p>Javascript的全局变量是魔鬼”。一种优雅的解决方式是闭包。配合var关键字，匿名函数可以实现有效隔离，不会造成全局变量的污染。闭包函数在不使用全局变量的情况下使变量得以保持，使父函数始终在内存中。使代码风格跟面向对象接近。把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value）（这时一定要小心，不要随便改变父函数内部变量的值）。注意：模块中如果不使用var定义变量，那么变量就是全局的。在入口、在其他模块都可以用。</p>
+
+<p>4 Seajs</p>
+
+<p>seajs定义了两个关键字define,require。前者定义一个模块，后者允许在模块中加载其他模块。
+require 可以认为是 Sea.js 给 JavaScript 语言增加的一个 语法关键字，通过 require 可以在模块同步或者异步的获取其他模块通过 exports提供的接口（同时执行未包装的代码）。Sea.js 带来的两大好处:</p>
+
+<ul>
+<li><p>通过 exports 暴露接口。这意味着不需要命名空间了，更不需要全局变量。这是一种彻底的命名冲突解决方案。</p></li>
+
+<li><p>通过 require 引入依赖。这可以让依赖内置，开发者只需关心当前模块的依赖，其他事情 Sea.js 都会自动处理好。对模块开发者来说，这是一种很好的 关注度分离，能让程序员更多地享受编码的乐趣</p></li>
+</ul>
+
+<p>seajs所能加载的模块必须是按照CMD规范，用define定义的模块，但已经有一部分流行的函数库不是CMD规范的，比如jQuery。需要使用特殊的方式来加载。而且后台大部分的插件都是requirejs模块。对于非标准的模块加载，后者更有优势。</p>
+
+<p>5 requirejs</p>
+
+<p>requirejs是AMD规范的。同seajs一样有define和require两个关键字，不同的是，由于AMD即Asynchronous Module Definition，它的require就只有异步模式。seajs使用模块中的方法要通过exports关键字。而requirejs则直接使用define回调函数的返回获取可用的方法，同样是闭包。paths多次配置，跟seajs一样是取并集的。而且模块中不用var定义的变量都是全局可见的 。</p>
+
+<h4 id="总结">总结</h4>
+
+<p>时至今日，webpack基本一统了前端打包编译构建的天下，而其require引入模块化的概念也已深入人心，因为其接近于Node端CMD的模块化方式，越来越多的开发者和项目负责人选择了统一，AMD的声音也渐渐弱了下去。然而前端好比天下江湖之远，纷争终于平息，然而其发展并不会止于此，安迪-格鲁夫说过，一个完备的程序世界的价值远大于其之前的讨论，争辩和分歧，然而如果没有后者的存在，前者出现的可能性也不会很大。所以，继续前进吧，前端开发者们~</p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://paraofheaven.github.io/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/">关于网页缓存的一些实践</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://paraofheaven.github.io/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://paraofheaven.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

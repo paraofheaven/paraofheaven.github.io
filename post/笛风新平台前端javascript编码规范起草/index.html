@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>笛风新平台前端JavaScript编码规范起草 &middot; paraofheaven</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://paraofheaven.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://paraofheaven.github.io/css/my.css">
+  
+  
+    <script src="https://paraofheaven.github.io/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://paraofheaven.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/shot/"><i class='fa fa-photo fa-fw'></i>Shots</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/paraofheaven" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/paraofheaven" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://steamcommunity.com/id/paradiseyong" target="_blank"><i class="fa fa-steam-square fa-fw"></i>Steam</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>笛风新平台前端JavaScript编码规范起草</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>24 Aug 2016, 15:44</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/javascript">JavaScript</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/lint">lint</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <h4 id="编码规范">编码规范</h4>
+
+<p>在团队协作过程中，编码规范的作用想必不用多说，本文主要介绍如何选择及相应的辅助工具，最大程度上保证代码质量。</p>
+
+<h5 id="选择标准">选择标准</h5>
+
+<ul>
+<li>认可度高，该规范现在已经或者即将成为国际 JavaScript 标准了</li>
+<li>支持项目的技术选型</li>
+<li>完备的插件支持</li>
+</ul>
+
+<p></p>
+
+<p>参考以上几条标准， airbnb 团队在 GitHub 维护的 <a href="https://github.com/airbnb/javascript">airbnb/javascript</a> 瞬间脱颖而出。</p>
+
+<ul>
+<li>目前 GitHub 上最有热度的规范，有恐怖的 35000+ 个 star</li>
+<li>支持 ES6、React 等</li>
+<li>官方提供 ESlint、JSCS 插件支持</li>
+</ul>
+
+<h5 id="规则配置">规则配置</h5>
+
+<p>airbnb 团队在分享编码风格的同时，还提供了与之对应的 eslint 配置文件。他们提供的配置文件，根据使用环境不同，分三种：</p>
+
+<p>1 <code>eslint-config-airbnb</code></p>
+
+<p>支持<code>ECMAScript 6+</code>和<code>React</code></p>
+
+<ul>
+<li><p><code>npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint</code></p></li>
+
+<li><p>add <code>&quot;extends&quot; : &quot;airbnb&quot;</code> to your <code>.eslintrc</code></p></li>
+</ul>
+
+<p>2 <code>eslint-config-airbnb-base</code></p>
+
+<p>支持<code>ECMAScript 6+</code></p>
+
+<ul>
+<li><p><code>npm install --save-dev eslint-config-airbnb-base eslint-plugin-import eslint</code></p></li>
+
+<li><p>add <code>&quot;extends&quot;: &quot;airbnb-base&quot;</code> to your <code>.eslintrc</code></p></li>
+</ul>
+
+<p>3 <code>eslint-config-airbnb-base/legacy</code></p>
+
+<p>支持ES5</p>
+
+<ul>
+<li><p><code>npm install --save-dev eslint-config-airbnb-base eslint-plugin-import eslint</code></p></li>
+
+<li><p>add <code>&quot;extends&quot;: &quot;airbnb-base/legacy&quot;</code> to your <code>.eslintrc</code></p></li>
+</ul>
+
+<h5 id="eslint-parser">Eslint Parser</h5>
+
+<p>如果程序中还有ES5的写法，建议使用<code>base-eslint</code>作为eslint的eslint的parser,只要在<code>.eslintrc</code>中加入如下代码即可。</p>
+
+<pre><code class="language-js">&quot;parser&quot;: &quot;babel-eslint&quot;
+</code></pre>
+
+<h5 id="可视化提示">可视化提示</h5>
+
+<p>借助webstorm提供的ESlint插件，在<code>Setting\Languages&amp;Frameworks\JavaScript\Code Quality Tools\ESlint</code>选中Enbale即可，webstorm会自动查找<code>.eslintrc</code>和<code>pacjage.json</code>，来对js文件进行lint处理，另外，还可以自定义eslintConfig文件，和Additional rules 。</p>
+
+<p>webstorm除了可以进行lint操作，还可以自动对一些简单的错误和警告进行修复，右击选项<code>fix ESlint problems</code>，这样可以大大减少我们修复编码规范的时间，不得不说，webstorm真是前端开发的神器啊。</p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://paraofheaven.github.io/post/javascript%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://paraofheaven.github.io/post/javascript%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91/">JavaScript语法解析与抽象语法树</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://paraofheaven.github.io/post/react%E6%96%87%E6%A1%A3%E4%B8%AD%E6%B2%A1%E6%8F%90%E5%88%B0%E7%9A%84%E4%BA%8B/">React文档中没提到的事</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://paraofheaven.github.io/post/react%E6%96%87%E6%A1%A3%E4%B8%AD%E6%B2%A1%E6%8F%90%E5%88%B0%E7%9A%84%E4%BA%8B/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://paraofheaven.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

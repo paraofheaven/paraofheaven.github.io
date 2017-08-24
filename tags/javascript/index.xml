@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on paraofheaven</title>
+    <link>https://paraofheaven.github.io/tags/javascript/</link>
+    <description>Recent content in Javascript on paraofheaven</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 24 Aug 2016 15:44:02 +0800</lastBuildDate>
+    
+	<atom:link href="https://paraofheaven.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>笛风新平台前端JavaScript编码规范起草</title>
+      <link>https://paraofheaven.github.io/post/%E7%AC%9B%E9%A3%8E%E6%96%B0%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AFjavascript%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E8%B5%B7%E8%8D%89/</link>
+      <pubDate>Wed, 24 Aug 2016 15:44:02 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/%E7%AC%9B%E9%A3%8E%E6%96%B0%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AFjavascript%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E8%B5%B7%E8%8D%89/</guid>
+      <description>&lt;h4 id=&#34;编码规范&#34;&gt;编码规范&lt;/h4&gt;
+
+&lt;p&gt;在团队协作过程中，编码规范的作用想必不用多说，本文主要介绍如何选择及相应的辅助工具，最大程度上保证代码质量。&lt;/p&gt;
+
+&lt;h5 id=&#34;选择标准&#34;&gt;选择标准&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;认可度高，该规范现在已经或者即将成为国际 JavaScript 标准了&lt;/li&gt;
+&lt;li&gt;支持项目的技术选型&lt;/li&gt;
+&lt;li&gt;完备的插件支持&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript语法解析与抽象语法树</title>
+      <link>https://paraofheaven.github.io/post/javascript%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91/</link>
+      <pubDate>Fri, 20 May 2016 20:39:57 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/javascript%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91/</guid>
+      <description>&lt;p&gt;In parahome on 2016-05-20 by para&lt;/p&gt;
+
+&lt;p&gt;抽象语法树（Abstract Syntax Tree）也称为AST语法树，指的是源代码语法所对应的树状结构。也就是说，对于一种具体编程语言下的源代码，通过构建语法树的形式将源代码中的语句映射到树中的每一个节点上。&lt;/p&gt;
+
+&lt;h2 id=&#34;什么是语法树&#34;&gt;什么是语法树&lt;/h2&gt;
+
+&lt;p&gt;可以通过一个简单的例子来看语法树具体长什么样子。有如下代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  var AST = &amp;quot;is Tree&amp;quot;; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript中的new关键字</title>
+      <link>https://paraofheaven.github.io/post/javascript%E4%B8%AD%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Thu, 06 Aug 2015 21:41:42 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/javascript%E4%B8%AD%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>&lt;p&gt;In parahome on 2015-08-06 by para&lt;/p&gt;
+
+&lt;p&gt;Javascript中，实例化一个对象，会用到new关键字。&lt;/p&gt;
+
+&lt;p&gt;经常有人会问我，对于一个函数，什么时候该使用new关键字。&lt;/p&gt;
+
+&lt;p&gt;在回答这个问题之前，需要先了解清楚new的本质，在调用new Function的时候，new做了什么操作。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

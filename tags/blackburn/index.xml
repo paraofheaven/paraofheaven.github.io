@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blackburn on paraofheaven</title>
+    <link>https://paraofheaven.github.io/tags/blackburn/</link>
+    <description>Recent content in Blackburn on paraofheaven</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 24 Aug 2017 16:54:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://paraofheaven.github.io/tags/blackburn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Start a Hugo Blog In BlackBurn Feeling</title>
+      <link>https://paraofheaven.github.io/post/spf13-vim-3-0-release-and-new-website/</link>
+      <pubDate>Thu, 24 Aug 2017 16:54:37 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/spf13-vim-3-0-release-and-new-website/</guid>
+      <description>Blackburn Blackburn is a clear and responsive theme for Hugo.
+Overview  Based on Yahoo&amp;rsquo;s Pure CSS (v1.0.0) Fixed sidebar with social links:  Twitter GNU social Facebook Google+ Weibo Tumblr Instagram Flickr 500px Pinterest YouTube Vimeo Vine SlideShare LinkedIn Xing Reddit Hacker News GitHub GitLab Bitbucket Stack Overflow Server Fault Steam MobyGames Last.fm Discogs Keybase  Client-side syntax highlighting by Highlight.js (v9.12.0) Web analytics by Google Analytics Comments by Disqus Icons by Font Awesome (v4.</description>
+    </item>
+    
+  </channel>
+</rss>

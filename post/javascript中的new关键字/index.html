@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>JavaScript中的new关键字 &middot; paraofheaven</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://paraofheaven.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://paraofheaven.github.io/css/my.css">
+  
+  
+    <script src="https://paraofheaven.github.io/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://paraofheaven.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/shot/"><i class='fa fa-photo fa-fw'></i>Shots</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/paraofheaven" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/paraofheaven" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://steamcommunity.com/id/paradiseyong" target="_blank"><i class="fa fa-steam-square fa-fw"></i>Steam</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>JavaScript中的new关键字</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>06 Aug 2015, 21:41</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/javascript">JavaScript</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/new">new</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>In parahome on 2015-08-06 by para</p>
+
+<p>Javascript中，实例化一个对象，会用到new关键字。</p>
+
+<p>经常有人会问我，对于一个函数，什么时候该使用new关键字。</p>
+
+<p>在回答这个问题之前，需要先了解清楚new的本质，在调用new Function的时候，new做了什么操作。</p>
+
+<p></p>
+
+<p>先看如下代码：</p>
+
+<pre><code class="language-js">	function classA(){
+		this.name=1;
+	}
+	classA.prototype.show = function(){
+		alert(this.name)
+	}
+	var b =new classA();
+	b.show();
+</code></pre>
+
+<p><code>var b =new classA();</code></p>
+
+<p>这句中，new做了以下几件事情。</p>
+
+<p>1 创建一个新的对象，这个对象的类型是object;
+2 查找class的prototype上的所有方法、属性，复制一份给创建的Object
+3 将构造函数classA内部的this指向创建的Object
+4 创建的Object的<strong>proto</strong>指向class的prototype
+5 执行构造函数class
+6 返回新创建的对象给变量b</p>
+
+<p>这个流程应该比较好理解的。这里再解释一下：</p>
+
+<p>1 构造函数：我们一般把new 后面的函数称为构造函数，如new classA()，其中classA就为构造函数
+2 第四点的<strong>proto</strong>，可能比较难理解。</p>
+
+<p>每个对象都会在其内部初始化一个属性，就是<strong>proto</strong>，可以在chrome中的调试器里写个对象查看下。**当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去<strong>proto</strong>里找这个属性，这个<strong>proto</strong>又会有自己的<strong>proto</strong>，于是就这样一直找下去，也就是我们平时所说的原型链的概念。</p>
+
+<p>当我们调用b.show()时，首先b中没有show这个属性，于是，它就需要到它的<strong>proto</strong>中去找，也就是ClassA.prototype，
+而我们在上面定义了ClassA.prototype.show=function(){}; 于是，就找到了这个方法。</p>
+
+<p>再用下面的代码来理解</p>
+
+<pre><code class="language-js">	var b={};
+	b.__proto__ =classA.prototype;
+	classA.call(b);
+</code></pre>
+
+<p>最后再用一句话总结：new关键字以classA()为模板创建了一个新的对象，它复制了classA构造器中的所有成员变量，同时this指向新创建的对象。</p>
+
+<p>有2点需要注意：</p>
+
+<p>1 如果构造函数内没有返回值，则默认是返回this（当前上下文），要不然就返回<strong>任意非原始类型值</strong>。
+2 如果不用new关键字，如</p>
+
+<pre><code class="language-js">	var b = classA();
+</code></pre>
+
+<p><strong>则classA值会返回undefined</strong>,并且<strong>this(执行上下文)是window对象</strong>。
+也就是说<strong>如果你不new的话，this指的就是window全局对象了</strong>。
+如果要理解这点，需要理清楚this的指向。</p>
+
+<p>####this的指向：</p>
+
+<p>1 总的来说，this在函数内部使用，用来引用包含函数的对象，而不是函数本身。
+2 当this值的宿主函数被封装在另一个函数的内部或在另一个函数的上下文中被调用时，this值将永远是对head对象的引用（即全局window对象）
+3 使用new关键字调用构造函数，this引用&rdquo;即将创建的对象&rdquo;</p>
+
+<p>如下面代码：</p>
+
+<pre><code class="language-js">	function classA(){
+		this.name=1;
+	}
+	classA();
+	console.log(name);
+</code></pre>
+
+<p>此时输出<code>1</code></p>
+
+<p>看到这里，相信可以都了解new的用法。</p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://paraofheaven.github.io/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://paraofheaven.github.io/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/">关于网页缓存的一些实践</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://paraofheaven.github.io/post/javascript%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91/">JavaScript语法解析与抽象语法树</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://paraofheaven.github.io/post/javascript%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://paraofheaven.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

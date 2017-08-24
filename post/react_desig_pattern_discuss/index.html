@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.26" />
 
-  <title>Posts &middot; paraofheaven</title>
+  <title>React Design Pattern Discuss &middot; paraofheaven</title>
 
   
   
@@ -36,8 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="paraofheaven" href="https://paraofheaven.github.io/post/index.xml" />
   
 
   
@@ -108,10 +106,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://paraofheaven.github.io/post/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -223,55 +217,139 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>React Design Pattern Discuss</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-  <h2>2017</h2>
-  <ul>
-  
-    <li><time>24 Aug 2017, 16:54</time> - <a href="https://paraofheaven.github.io/post/spf13-vim-3-0-release-and-new-website/">Start a Hugo Blog In BlackBurn Feeling</a></li>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>11 Nov 2016, 21:37</time>
+  </div>
 
   
-  </ul>
-  
-  <h2>2016</h2>
-  <ul>
-  
-    <li><time>08 Dec 2016, 21:03</time> - <a href="https://paraofheaven.github.io/post/immutable%E8%AF%A6%E8%A7%A3%E5%8F%8Areact%E4%B8%AD%E5%AE%9E%E8%B7%B5/">Immutable 详解及React中实践</a></li>
 
   
-    <li><time>11 Nov 2016, 21:37</time> - <a href="https://paraofheaven.github.io/post/react_desig_pattern_discuss/">React Design Pattern Discuss</a></li>
 
   
-    <li><time>02 Nov 2016, 19:20</time> - <a href="https://paraofheaven.github.io/post/state%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%80%9D%E8%80%83/">State数据格式设计中的思考</a></li>
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/react">React</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/pattern">Pattern</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>In parahome on 2016-11-11 by para</p>
+
+<h4 id="transformation">transformation</h4>
+
+<p>The core premise for React is that UIs are simply a projection of data into a different form of data. The same input gives the same output. A simple <code>pure function</code>.</p>
+
+<p></p>
+
+<h4 id="abstraction">Abstraction</h4>
+
+<p>You can¡¯t fit a complex UI in a single function though. It is important that UIs can be abstracted into <code>reuseable pieces that don't leak their implementation details</code>,Such as calling one function from another without any hesitation.</p>
+
+<h4 id="composition">Composition</h4>
+
+<p>You also need to be able to build abstractions from the containers that <code>compose</code> other abstractions.</p>
+
+<h4 id="state">State</h4>
+
+<p>There is actually a lot of state that is specific to an exact projection and not others.</p>
+
+<p>We tend to perfer our data model to be immutable.We thread functions through that can update state as a single atom at the top.</p>
+
+<h4 id="memoization">Memoization</h4>
+
+<p>Calling the same function over and over again is wasteful if we know that the function is pure. We can create a memoized version of a function that keeps track of the last argument and last result.</p>
+
+<h4 id="lists">Lists</h4>
+
+<p>To manage the state for each item in a list we can create a Map that holds the state for a particular item.</p>
+
+<h4 id="continuations">Continuations</h4>
+
+<p>Unfortunately, since there are so many lists of lists all over the place in UIs, it becomes quite a lot of boilerplate to manage that explicitly.</p>
+
+<p>We can move some of this boilerplate out of our critical business logic by deferring execution of a function. For example, by using ¡°currying¡± (bind in JavaScript).</p>
+
+<h4 id="state-map">State Map</h4>
+
+<p>We can move the logic of extracting and passing state to a low-level function that we reuse a lot.</p>
+
+<h4 id="memoization-map">Memoization Map</h4>
+
+<p>Once we want to memoize multiple items in a list memoization becomes much harder. You have to figure out some complex caching algorithm that balances memory usage with frequency.</p>
+
+<p>Luckily, UIs tend to be fairly stable in the same position. The same position in the tree gets the same value every time. This tree turns out to be a really useful strategy for memoization.</p>
+
+<p>to be continue&hellip;</p>
 
   
-    <li><time>20 Oct 2016, 21:02</time> - <a href="https://paraofheaven.github.io/post/react%E6%96%87%E6%A1%A3%E4%B8%AD%E6%B2%A1%E6%8F%90%E5%88%B0%E7%9A%84%E4%BA%8B/">React文档中没提到的事</a></li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://paraofheaven.github.io/post/state%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%80%9D%E8%80%83/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://paraofheaven.github.io/post/state%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%80%9D%E8%80%83/">State数据格式设计中的思考</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://paraofheaven.github.io/post/immutable%E8%AF%A6%E8%A7%A3%E5%8F%8Areact%E4%B8%AD%E5%AE%9E%E8%B7%B5/">Immutable 详解及React中实践</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://paraofheaven.github.io/post/immutable%E8%AF%A6%E8%A7%A3%E5%8F%8Areact%E4%B8%AD%E5%AE%9E%E8%B7%B5/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
 
   
-    <li><time>24 Aug 2016, 15:44</time> - <a href="https://paraofheaven.github.io/post/%E7%AC%9B%E9%A3%8E%E6%96%B0%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AFjavascript%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E8%B5%B7%E8%8D%89/">笛风新平台前端JavaScript编码规范起草</a></li>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  
-    <li><time>20 May 2016, 20:39</time> - <a href="https://paraofheaven.github.io/post/javascript%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91/">JavaScript语法解析与抽象语法树</a></li>
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
 
-  
-  </ul>
-  
-  <h2>2015</h2>
-  <ul>
-  
-    <li><time>06 Aug 2015, 21:41</time> - <a href="https://paraofheaven.github.io/post/javascript%E4%B8%AD%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97/">JavaScript中的new关键字</a></li>
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-  
-    <li><time>19 May 2015, 22:18</time> - <a href="https://paraofheaven.github.io/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/">关于网页缓存的一些实践</a></li>
 
-  
-    <li><time>11 Apr 2015, 22:20</time> - <a href="https://paraofheaven.github.io/post/%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E5%BA%93%E5%92%8C%E9%97%AD%E5%8C%85/">使用模块化编程库和闭包</a></li>
-
-  
-  </ul>
-  
 </div>
 
 </div>

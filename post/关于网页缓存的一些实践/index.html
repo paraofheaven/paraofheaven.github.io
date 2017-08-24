@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>关于网页缓存的一些实践 &middot; paraofheaven</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://paraofheaven.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://paraofheaven.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://paraofheaven.github.io/css/my.css">
+  
+  
+    <script src="https://paraofheaven.github.io/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://paraofheaven.github.io/">Blackburn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/shot/"><i class='fa fa-photo fa-fw'></i>Shots</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://paraofheaven.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/paraofheaven" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://bitbucket.org/*" target="_blank"><i class="fa fa-bitbucket-square fa-fw"></i>Bitbucket</a>
+    </li>
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/paraofheaven" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://steamcommunity.com/id/paradiseyong" target="_blank"><i class="fa fa-steam-square fa-fw"></i>Steam</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>关于网页缓存的一些实践</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>19 May 2015, 22:18</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/%E7%BF%BB%E8%AF%91">翻译</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/%E7%BC%93%E5%AD%98">缓存</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>In parahome on 2015-05-19 by para</p>
+
+<h3 id="前言">前言：</h3>
+
+<p>在8年之前，Yahoo团队曾经对网页中的缓存做了比较详尽的研究，但是随着互联网的高速发展，研究数据发生了一些变化。这篇文章主要是Facebook的web团队对现在缓存情况一些数据收集和研究。包括PC和移动端资源被缓存的时间以及资源在存在的时间。网页缓存是性能优化很重要的因素，值得一读。</p>
+
+<p></p>
+
+<h3 id="正文">正文</h3>
+
+<p>网页加载速度是每个网站都应该重视的因素。但是往往被大家忽略。缓存是一个提升网站访问速度非常重要的因素（因为用户在下次访问的时候不需要重新计算或者下载已经缓存的资源）</p>
+
+<p>我们团队（facebookweb团队）最近针对目前facebook.com没有缓存的现状进行了一番讨论，主要问题是：在facebook,.我们每天都会发布两个版本，怎么样才能令缓存更有效率？怎么样的缓存策略才适合我们？</p>
+
+<p>在找解决方案的时候， 我们发现雅虎性能优化研究博客上已经有了一篇关于性能研究的文章。
+但是令我们非常吃惊的是：20%的页面访问是在空缓存的情况下进行的。但是这个研究结果距离现在有8年了，那个时代刚发布IE7，jquery也刚发布第一个版本，所以我们决定重新研究一下，看现在是不是有所改善。</p>
+
+<h3 id="重新研究">重新研究</h3>
+
+<p>在之前的研究当中，Yahoo在服务器创建了HTTP头设置了图片的过期时间和上次修改时间，如果图片没有发生改变，就用GET请求发送给服务器一个最后修改时间的信息，如果图片没有修改，就返回304（没有修改）来替换200（请求成功）。因为服务器可以记录浏览器请求的请求状态，所以Yahoo用服务器日志来统计缓存的用户数。</p>
+
+<p>像那样的研究方法一样，我们创建了一个既能发送图片请求也能在数据库当中记录日志的PHP终点。这张图片用http头信息来控制浏览器的缓存和其他通过代理产生的缓存。之后在用户请求图片的时候记录这些信息。</p>
+
+<p>这个图片HTTP头信息的设置是这样的：</p>
+
+<p><img src="http://ossweb-img.qq.com/upload/webplat/info/tgideas/201507/1438227497_1436653066_28235_imageAddr.jpg" alt="" /></p>
+
+<p>但是因为一些已知的BUG，我们在IE7和IE8中把两个属性替换成了下面这样：</p>
+
+<p><img src="http://ossweb-img.qq.com/upload/webplat/info/tgideas/201507/1438227512_1436653066_28766_imageAddr.jpg" alt="" /></p>
+
+<p>当浏览器发送请求给图片时候，将会发生两件事情：</p>
+
+<p>1 因为浏览器从来没有打开过这张图片，所以没有额外的头信息，服务器将返回一个状态码：200 Success 接着返回图片数据给浏览器，之后浏览器会缓存文件的HTTP头信息当中的Last-Modified(文件最后修改时间)和ETag(被请求变量的实体值)</p>
+
+<p>2 浏览器检查if-none-match或者if-modified-since头信息，如果之前有打开过。将会不加载图片数据直接返回Status:304 Not Modified(没有更新)。同时我们把Last-Moidified头信息用$header[&lsquo;if-modified-since&rsquo;]替换掉$now()，所以每次返回的内容都将是一样的。</p>
+
+<p>现在剩下问题是我们在哪里应用这张图片，最后我们决定在Facebook的搜索条下面包含一个img标签，这样每次facebook加载的时候都会渲染这张图片。在整个页面重新加载的时候，资源将会根据缓存的头信息进行加载。这将是最好的方式来测试我们的想法。</p>
+
+<p>在确保endpoint可以正常记录请求、图片标签可以正常访问了之后，我们正式开始了这次研究！</p>
+
+<h3 id="研究结果">研究结果</h3>
+
+<p>在数周的数据收集之后，我们决定来研究一下7天最后比较有价值的数据。数据的统计结果依旧让我们感到吃惊：依旧有25.5%的请求是空缓存的。为了让数据看起来更清晰，我们分隔了PC和手机的统计数据，但是数据依旧差不多:PC有24.8%而手机端有26.9%是空缓存的。这个结果不太符合我们预期，所以我们更加深入的研究了这个数据。</p>
+
+<p>把PC端的浏览器分开来统计可能更加清楚：</p>
+
+<p><img src="http://ossweb-img.qq.com/upload/webplat/info/tgideas/201507/1438227526_1436653066_28926_imageAddr.jpg" alt="" /></p>
+
+<p>根据上面一周的数据来看：用户用chrome和opera缓存的几率更大。你可能注意到你这个图表中并没有firefox浏览器的数据，那是因为firefox 31版本以及更早期的版本在我们的统计中有80%的缓存概率，但是在32版本和更高的版本当中有很明显的下降。那是因为firefox的缓存策略和我们的统计方法有点冲突（<a href="http://www.janbambas.cz/new-firefox-http-cache-enabled/），">http://www.janbambas.cz/new-firefox-http-cache-enabled/），</a></p>
+
+<p>所以我们就干脆去掉了firefox浏览器的数据统计。</p>
+
+<p>好了，现在让我们来看看移动端的数据：</p>
+
+<p><img src="http://ossweb-img.qq.com/upload/webplat/info/tgideas/201507/1438227540_1436653066_29425_imageAddr.jpg" alt="" /></p>
+
+<p>可以看到，大部分浏览器的缓存比例是在68%和84%之间。移动平台的数据差别还是挺大的，我们想可能都是比较低端的移动设备(<a href="https://code.facebook.com/posts/307478339448736/year-class-a-classification-system-for-android/)。除此以外数据跟桌面端还是比较相似的。">https://code.facebook.com/posts/307478339448736/year-class-a-classification-system-for-android/)。除此以外数据跟桌面端还是比较相似的。</a></p>
+
+<p>下面这个图分别是移动端和手机端空缓存用户所占的比例：</p>
+
+<p><img src="http://ossweb-img.qq.com/upload/webplat/info/tgideas/201507/1438227552_1436653066_30265_imageAddr.jpg" alt="" /></p>
+
+<p>平均来看，有44.6%的用户是空缓存的，这个也很符合Yahoo团队在2007年做的研究。</p>
+
+<h3 id="更进一步">更进一步</h3>
+
+<p>到这里，文章还没有完结。在Facebook，我们迭代速度非常快，每天几乎都会发布两个版本。这个驱动我们去思考，多长时间的缓存设置适合我们呢？我们将if-modified-since这个文件头返回的时间减去当前时间来寻找答案。</p>
+
+<p>所以我们根据上面的方法，我们统计了从第一次正常请求到发生304请求的时间（这说明了用户从没有缓存到有缓存经历了多长时间），下面是数据生成的图标：</p>
+
+<p><img src="http://ossweb-img.qq.com/upload/webplat/info/tgideas/201507/1438227568_1436653066_30570_imageAddr.jpg" alt="" /></p>
+
+<p>横轴是以小时为单位的时间值，垂直竖线P50和P75表示在某一时间内缓存请求所占的比例，例如P50告诉我们在47小时的时候有50%的请求是有缓存的，同样，p75意味着75%的请求将是有缓存的。</p>
+
+<p>移动端的测试数据告诉我们大概在12小时的时候有50%的请求是有缓存的。</p>
+
+<h3 id="实际应用">实际应用</h3>
+
+<p>总体来看我们的统计跟2007年是比较相似的，如果我们firefox浏览器（32和更高版本）不计入统计的话：这次有缓存的比例最高点是84.1%，高于2007年的80%。</p>
+
+<p>另一方面，缓存的存在时间并不是太长。基于我们的研究，虽然在一个新版本发布的47小时之后有42%的请求将会带有缓存，但是这个缓存资源在电脑上存在时间也大概是这个时间。这个新的发现，对其他网站很有参考意义。</p>
+
+<p>为什么缓存存在的时间不是太长？其实非常容易理解，从互联网的发展来说，网站的体积从2007到现在发生了不小的变化。拿2007年年来说，那时候我们家里的网速大概是2.5M，Yahoo的首页有168.1KB。现在我的手机都有了8G下行，Yahoo首页已经变到768KB。现在市面上网页的平均大小已经超过1MB了，这将给我们的浏览器的良好运作带来很大的压力（译者注：因为需要缓存的资源太多，超过浏览器设置的默认资源缓存大小会自动删掉早期的一些缓存文件，例如ie默认的是50MB，而chrome的是320MB)。</p>
+
+<p>因此合理利用浏览器缓存比8年之前更加有意义。</p>
+
+<p>最佳实践告诉我们：尽量用外链样式表和JS、让headers设置Cache-Control and ETag，并尽可能的压缩我们的数据、用不同的网址管理缓存、分割需要频繁更新的资源。这些优化方法不仅适用于像facebook这样规模的项目，其他网站也可以应用它们。虽然我们的更新频率会对缓存的优化带来负面的影响，但是这个不是本次文章所研究的重点。事实上，我们已经开始运用这次的研究成果来让所有访问facebook的用户收益。</p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://paraofheaven.github.io/post/%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E5%BA%93%E5%92%8C%E9%97%AD%E5%8C%85/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://paraofheaven.github.io/post/%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E5%BA%93%E5%92%8C%E9%97%AD%E5%8C%85/">使用模块化编程库和闭包</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://paraofheaven.github.io/post/javascript%E4%B8%AD%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97/">JavaScript中的new关键字</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://paraofheaven.github.io/post/javascript%E4%B8%AD%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://paraofheaven.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

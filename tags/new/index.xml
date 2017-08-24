@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>New on paraofheaven</title>
+    <link>https://paraofheaven.github.io/tags/new/</link>
+    <description>Recent content in New on paraofheaven</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 06 Aug 2015 21:41:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://paraofheaven.github.io/tags/new/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JavaScript中的new关键字</title>
+      <link>https://paraofheaven.github.io/post/javascript%E4%B8%AD%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Thu, 06 Aug 2015 21:41:42 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/javascript%E4%B8%AD%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>&lt;p&gt;In parahome on 2015-08-06 by para&lt;/p&gt;
+
+&lt;p&gt;Javascript中，实例化一个对象，会用到new关键字。&lt;/p&gt;
+
+&lt;p&gt;经常有人会问我，对于一个函数，什么时候该使用new关键字。&lt;/p&gt;
+
+&lt;p&gt;在回答这个问题之前，需要先了解清楚new的本质，在调用new Function的时候，new做了什么操作。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

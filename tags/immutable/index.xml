@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Immutable on paraofheaven</title>
+    <link>https://paraofheaven.github.io/tags/immutable/</link>
+    <description>Recent content in Immutable on paraofheaven</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 08 Dec 2016 21:03:06 +0800</lastBuildDate>
+    
+	<atom:link href="https://paraofheaven.github.io/tags/immutable/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Immutable 详解及React中实践</title>
+      <link>https://paraofheaven.github.io/post/immutable%E8%AF%A6%E8%A7%A3%E5%8F%8Areact%E4%B8%AD%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 08 Dec 2016 21:03:06 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/immutable%E8%AF%A6%E8%A7%A3%E5%8F%8Areact%E4%B8%AD%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;p&gt;In parahome on 2016-12-08 by para&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Shared mutable state is the root of all evil(共享的可变状态是万恶之源)
+&amp;ndash;Pete Hunt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;有人说 Immutable 可以给 React 应用带来数十倍的提升，也有人说 Immutable 的引入是近期 JavaScript 中伟大的发明，因为同期 React 太火，它的光芒被掩盖了。这些至少说明 Immutable 是很有价值的，下面我们来一探究竟。&lt;/p&gt;
+
+&lt;p&gt;JavaScript 中的对象一般是可变的（Mutable），因为使用了引用赋值，新的对象简单的引用了原始对象，改变新的对象将影响到原始对象。如
+&lt;code&gt;foo ={a:1};bar =foo;bar.a=2&lt;/code&gt; ，你会发现此时&lt;code&gt;foo.a&lt;/code&gt;也被改成了&lt;code&gt;2&lt;/code&gt;。虽然这样做可以节约内存，但当应用复杂后，这就造成了非常大的隐患，Mutable带来的优点变得得不偿失。为了解决这个问题，一般的做法是使用shallowCopy(浅拷贝)或deepCopy(深拷贝)来避免被修改，但这样做造成了CPU和内存的浪费。&lt;/p&gt;
+
+&lt;p&gt;Immutable 可以很好地解决这些问题。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

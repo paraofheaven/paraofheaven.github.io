@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on paraofheaven</title>
+    <link>https://paraofheaven.github.io/tags/react/</link>
+    <description>Recent content in React on paraofheaven</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 08 Dec 2016 21:03:06 +0800</lastBuildDate>
+    
+	<atom:link href="https://paraofheaven.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Immutable 详解及React中实践</title>
+      <link>https://paraofheaven.github.io/post/immutable%E8%AF%A6%E8%A7%A3%E5%8F%8Areact%E4%B8%AD%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 08 Dec 2016 21:03:06 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/immutable%E8%AF%A6%E8%A7%A3%E5%8F%8Areact%E4%B8%AD%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;p&gt;In parahome on 2016-12-08 by para&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Shared mutable state is the root of all evil(共享的可变状态是万恶之源)
+&amp;ndash;Pete Hunt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;有人说 Immutable 可以给 React 应用带来数十倍的提升，也有人说 Immutable 的引入是近期 JavaScript 中伟大的发明，因为同期 React 太火，它的光芒被掩盖了。这些至少说明 Immutable 是很有价值的，下面我们来一探究竟。&lt;/p&gt;
+
+&lt;p&gt;JavaScript 中的对象一般是可变的（Mutable），因为使用了引用赋值，新的对象简单的引用了原始对象，改变新的对象将影响到原始对象。如
+&lt;code&gt;foo ={a:1};bar =foo;bar.a=2&lt;/code&gt; ，你会发现此时&lt;code&gt;foo.a&lt;/code&gt;也被改成了&lt;code&gt;2&lt;/code&gt;。虽然这样做可以节约内存，但当应用复杂后，这就造成了非常大的隐患，Mutable带来的优点变得得不偿失。为了解决这个问题，一般的做法是使用shallowCopy(浅拷贝)或deepCopy(深拷贝)来避免被修改，但这样做造成了CPU和内存的浪费。&lt;/p&gt;
+
+&lt;p&gt;Immutable 可以很好地解决这些问题。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Design Pattern Discuss</title>
+      <link>https://paraofheaven.github.io/post/react_desig_pattern_discuss/</link>
+      <pubDate>Fri, 11 Nov 2016 21:37:36 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/react_desig_pattern_discuss/</guid>
+      <description>&lt;p&gt;In parahome on 2016-11-11 by para&lt;/p&gt;
+
+&lt;h4 id=&#34;transformation&#34;&gt;transformation&lt;/h4&gt;
+
+&lt;p&gt;The core premise for React is that UIs are simply a projection of data into a different form of data. The same input gives the same output. A simple &lt;code&gt;pure function&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>State数据格式设计中的思考</title>
+      <link>https://paraofheaven.github.io/post/state%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%80%9D%E8%80%83/</link>
+      <pubDate>Wed, 02 Nov 2016 19:20:10 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/state%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%80%9D%E8%80%83/</guid>
+      <description>&lt;p&gt;In parahome on 2016-11-02 by para&lt;/p&gt;
+
+&lt;h4 id=&#34;前言&#34;&gt;前言&lt;/h4&gt;
+
+&lt;p&gt;Redux中，State是整个应用的数据，本质上是一个普通对象。&lt;/p&gt;
+
+&lt;p&gt;State决定了整个应用的组件如何渲染，渲染的结果是什么。可以说，State是应用的灵魂，组件是应用的肉体。&lt;/p&gt;
+
+&lt;p&gt;所以，在项目开发初期，设计一份健壮灵活的State尤其重要，对后续的开发有很大的帮助。（请注意，并不强制要求所有的数据都保存到State中，有些属于组件的数据是完全可以留给组件自身去维护的。）&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React文档中没提到的事</title>
+      <link>https://paraofheaven.github.io/post/react%E6%96%87%E6%A1%A3%E4%B8%AD%E6%B2%A1%E6%8F%90%E5%88%B0%E7%9A%84%E4%BA%8B/</link>
+      <pubDate>Thu, 20 Oct 2016 21:02:45 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/react%E6%96%87%E6%A1%A3%E4%B8%AD%E6%B2%A1%E6%8F%90%E5%88%B0%E7%9A%84%E4%BA%8B/</guid>
+      <description>&lt;p&gt;In parahome on 2016-10-20 by para&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;前言&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;对很多 react 新手来说，网上能找到的资源大都是些简单的 tutorial ，React文档也是非常值得一读的，英文版的有着非常详细的介绍。它们能教会你如何使用 react ，但并不会告诉你怎么在实际项目中优雅的组织和编写 react 代码。用谷歌搜中文“ React 最佳实践”发现前两页几乎全都是同一篇国外文章的译文&amp;hellip;所以我总结了下自己过去那个项目使用 React 踩过的一些坑，也整理了一些别人的观点，希望对部分 react 使用者有帮助。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

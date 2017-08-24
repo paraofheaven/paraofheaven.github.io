@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>闭包 on paraofheaven</title>
+    <link>https://paraofheaven.github.io/tags/%E9%97%AD%E5%8C%85/</link>
+    <description>Recent content in 闭包 on paraofheaven</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 11 Apr 2015 22:20:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://paraofheaven.github.io/tags/%E9%97%AD%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用模块化编程库和闭包</title>
+      <link>https://paraofheaven.github.io/post/%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E5%BA%93%E5%92%8C%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Sat, 11 Apr 2015 22:20:45 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E5%BA%93%E5%92%8C%E9%97%AD%E5%8C%85/</guid>
+      <description>&lt;p&gt;In parahome on 2015-04-11 by para&lt;/p&gt;
+
+&lt;p&gt;1 问题及方案&lt;/p&gt;
+
+&lt;p&gt;后台js代码规范度不好，怎么写的都有，不易维护、复用度低，我们不期全部使用backbone做到前端MVC，但使用模块化编程库做到模块化开发还是简单而有意义的。&lt;/p&gt;
+
+&lt;p&gt;2 为什么要模块化&lt;/p&gt;
+
+&lt;p&gt;时至今日，把脚本放在页面的底部，已不再是最佳的解决方案，甚至事与愿违，转化为性能的毒药。出于种种的原因，我们几乎从不直接在页面上插入js脚本，而是使用第三方的加载器，比如seajs或者requirejs。加载模块的概念，如果你是后端开发工程师，更不会陌生。Java、Python、C# 等等语言，都有&lt;strong&gt;include&lt;/strong&gt;、&lt;strong&gt;import&lt;/strong&gt;等功能。JavaScript 语言本身也有类似功能，但目前还处于草案阶段，需要等到ES6 标准得到主流浏览器支持后才能使用。 模块化编程是十分便捷的工程管理工具，简化了代码的结构，让文件的功能变得单一易维护复用度高。更重要的是管理了文件依赖和消除了命名冲突问题，并利用 AMD / CMD 规范统一了格式。如果工具提供了异步加载，还可以避免页面停止渲染被js阻塞。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
