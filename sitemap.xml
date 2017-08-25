@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://paraofheaven.github.io/shot/</loc>
+    <lastmod>2017-08-25T10:58:03+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://paraofheaven.github.io/post/spf13-vim-3-0-release-and-new-website/</loc>
     <lastmod>2017-08-24T16:54:37+08:00</lastmod>
   </url>
@@ -123,6 +128,12 @@
   </url>
   
   <url>
+    <loc>https://paraofheaven.github.io/tags/shot/</loc>
+    <lastmod>2017-08-25T10:58:03+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://paraofheaven.github.io/tags/state/</loc>
     <lastmod>2016-11-02T19:20:10+08:00</lastmod>
     <priority>0</priority>
@@ -141,13 +152,19 @@
   
   <url>
     <loc>https://paraofheaven.github.io/</loc>
-    <lastmod>2017-08-24T16:54:37+08:00</lastmod>
+    <lastmod>2017-08-25T10:58:03+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://paraofheaven.github.io/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/</loc>
     <lastmod>2015-04-11T22:20:45+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://paraofheaven.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2017-08-25T10:58:03+08:00</lastmod>
     <priority>0</priority>
   </url>
   
