@@ -1,7 +1,3 @@
----
-title: "About"
-date: 2017-08-24T16:08:28+08:00
----
 
 ![](http://ov7v7riu9.bkt.clouddn.com/v2-9c7773ad7626a2ae03b3b7f7f9538271_b.jpg-middle)
 
