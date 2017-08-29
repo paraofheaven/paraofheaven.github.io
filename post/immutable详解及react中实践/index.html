@@ -282,7 +282,7 @@ Immutable 实现的原理是<strong>Persistent Data Structure</strong>(持久化
 
 <p><strong>Immutable.js</strong></p>
 
-<p>Facebook 工程师 Lee Byron 花费 3 年时间打造，与 React 同期出现，但没有被默认放到 React 工具集里（React 提供了简化的 Helper）。它内部实现了一套完整的 Persistent Data Structure，还有很多易用的数据类型。像<strong>Collection</strong>、 <strong>List</strong> 、<strong>Map</strong>、**Set <strong>、</strong>Record ** 、<strong>Seq</strong>。有非常全面的<strong>map</strong>、<strong>filter</strong>、<strong>groupBy</strong>、<strong>reduce find</strong>函数式操作方法。同时ApI也尽量与Object或Array类似。</p>
+<p>Facebook 工程师 Lee Byron 花费 3 年时间打造，与 React 同期出现，但没有被默认放到 React 工具集里（React 提供了简化的 Helper）。它内部实现了一套完整的 Persistent Data Structure，还有很多易用的数据类型。像<strong>Collection</strong>、 <strong>List</strong> 、<strong>Map</strong>、<strong>Set</strong>、<strong>Record</strong> 、<strong>Seq</strong>。有非常全面的<strong>map</strong>、<strong>filter</strong>、<strong>groupBy</strong>、<strong>reduce find</strong>函数式操作方法。同时ApI也尽量与Object或Array类似。</p>
 
 <p>其中有3种最重要的数据结构说明以下：</p>
 
@@ -332,11 +332,11 @@ console.log(foo === bar);  //打印false
 <p>比如下面一段代码：</p>
 
 <pre><code class="language-js">function touchAndLog(touchFn){
-	let data ={
-		key : 'value'
-	};
-	touchFn(data);
-	console.log(data.key)  
+  let data ={
+    key : 'value'
+  };
+  touchFn(data);
+  console.log(data.key)  
 }
 </code></pre>
 
@@ -348,8 +348,8 @@ console.log(foo === bar);  //打印false
 
 <pre><code class="language-js">import { Map} from 'immutable'
 let a = Map({
-	select: 'users',
-	filter: Map({ name: 'Cam'})
+  select: 'users',
+  filter: Map({ name: 'Cam'})
 });
 let b =a.set('select','people');
 	
@@ -441,8 +441,8 @@ import Cursor from 'immutable/contrib/cursor';
 let data =Immtable.fromJs({a: {b: {c:1}}});
 // 让cursor指向 { c:1};
 let cursor =Cursor.from(data,['a','b'],newData =&gt; {
-	// 让cursor 或其子cursor执行update时调用
-	console.log(newData);
+  // 让cursor 或其子cursor执行update时调用
+  console.log(newData);
 });
 cursor.get('c'); // 1
 cursor =cursor.update('c', x =&gt;x +1);
@@ -459,11 +459,12 @@ cursor.get('c'); // 2
 
 <p><strong>Immutable 则提供了简洁高效的判断数据是否变化的方法</strong>，只需<code>===</code>和<code>is</code>比较就能知道是否需要执行<code>render()</code>，而这几个操作几乎零成本，所以可以极大提高性能。修改后的<code>shouldComponentUpdate</code>是这样的：</p>
 
-<pre><code class="language-js">	import {is} from 'immutable';
-	shouldComponentUpdate :(nextProps,nextState)=&gt;{
-		return !(this.props === nextProps || is(this.props, nextProps)) ||
-			   !(this.state === nextState || is(this.state, nextState));
-	}
+<pre><code class="language-js">import {is} from 'immutable';
+
+shouldComponentUpdate :(nextProps,nextState)=&gt;{
+  return !(this.props === nextProps || is(this.props, nextProps)) ||
+    !(this.state === nextState || is(this.state, nextState));
+}
 </code></pre>
 
 <p>使用Immutable后，如下图，当红色节点的state变化后，不会再渲染树中所有节点，而是只渲染图中绿色的部分：</p>
@@ -479,41 +480,41 @@ cursor.get('c'); // 2
 <pre><code class="language-js">import _ from 'lodash';
 
 const Component =React.createClass({
-	getInitialState(){
-		return {
-			data: {times: 0}
-		}
-	},
-	handleAdd(){
-		let data =_.cloneDeep(this.state.data);
-		data.times =data.times +1;
-		this.setState({data: data});
-		// 如果上面不做cloneDeep，下面打印的结果是已经加1后的值。
-		console.log(this.state.data.times);
-	}
+  getInitialState(){
+    return {
+      data: {times: 0}
+    }
+  },
+  handleAdd(){
+    let data =_.cloneDeep(this.state.data);
+    data.times =data.times +1;
+    this.setState({data: data});
+    // 如果上面不做cloneDeep，下面打印的结果是已经加1后的值。
+    console.log(this.state.data.times);
+  }
 })
 </code></pre>
 
 <p>使用Immutable后：</p>
 
 <pre><code class="language-js">getInitialState(){
-	return {
-		data: Map({times: 0})
-	}
+  return {
+    data: Map({times: 0})
+  }
 },
 handleAdd(){
-	this.setState({data: this.state.data.update('times', v =&gt; v + 1)});
-	// 这时的times并不会改变
-	console.log(this.state.data.get('times'));
+  this.setState({data: this.state.data.update('times', v =&gt; v + 1)});
+  // 这时的times并不会改变
+  console.log(this.state.data.get('times'));
 }
 </code></pre>
 
 <p>上面的<code>handleAdd</code>可以简写成：</p>
 
 <pre><code>handleAdd(){
-	this.setState(({data})=&gt; ({
-		data: data.update('times', v =&gt; v + 1)}
-	));
+  this.setState(({data})=&gt; ({
+    data: data.update('times', v =&gt; v + 1)}
+  ));
 }
 </code></pre>
 
@@ -528,26 +529,26 @@ let todos =OrderedMap();
 let history =[];  // 普通数组，存放每次操作后产生的数据
 
 let TodoStore =createStore({
-	getAll(){ return todos; }
+  getAll(){ return todos; }
 });
 Dispatcher.register(action =&gt; {
-	if(action.actionType === 'create'){
-		let id =createGUID();
-		history.push(todos);  //记录当前操作前的数据，便于撤销
-		todos = todos.set(id, Map({
-			id: id,
-			complete: false,
-			text: action.text.trim()
-		}));
-		TodoStore.emitChange();
-	}else if(action.actionType === 'undo'){
-		// 这里是撤销功能实现，
-		只需从history数组中取前一次todos即可
-		if(history.length &gt;0){
-			todos =history.pop();
-		}
-		TodoStore.emitChange();
-	}
+  if(action.actionType === 'create'){
+    let id =createGUID();
+    history.push(todos);  //记录当前操作前的数据，便于撤销
+    todos = todos.set(id, Map({
+      id: id,
+      complete: false,
+      text: action.text.trim()
+    }));
+	TodoStore.emitChange();
+  }else if(action.actionType === 'undo'){
+    // 这里是撤销功能实现，
+    只需从history数组中取前一次todos即可
+    if(history.length &gt;0){
+      todos =history.pop();
+    }
+    TodoStore.emitChange();
+  }
 })
 </code></pre>
 
