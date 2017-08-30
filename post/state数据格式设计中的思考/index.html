@@ -275,18 +275,18 @@
 先来个 <strong>不太好的示范</strong> ，我们有首页列表、研究所列表：</p>
 
 <pre><code class="language-js">{
-	homeList: [{},{}],
-	paperList: [{},{}]
+  homeList: [{},{}],
+  paperList: [{},{}]
 }
 </code></pre>
 
 <p>接下来，试想一下：还有其他类型的列表，比如tag列表、category列表：</p>
 
 <pre><code class="language-js">{
-	homeList: [{},{}],
-	paperList: [{},{}],
-	tagList: [{},{}],
-	categoryList: [{},{}]
+  homeList: [{},{}],
+  paperList: [{},{}],
+  tagList: [{},{}],
+  categoryList: [{},{}]
 }
 </code></pre>
 
@@ -294,18 +294,18 @@
 这样的话，我们的State很快就会变得臃肿并且难以维护，并且下一步的Reducer设计会变得格外吃力。那我们尝试根据 <strong>数据类别</strong> 做一个横向拆分的设计：</p>
 
 <pre><code class="language-js">{
-	// 文章相关的数据结构
-	articles: {
-		// 首页列表页
-		list: [{},{}],
-		// Tag列表页
-		tagList: [{},{}]
-	},
-	// 研究所相关的数据结构
-	paperList: {
-		//研究所列表页
-		list: [{},{}]
-	} 
+  // 文章相关的数据结构
+  articles: {
+    // 首页列表页
+    list: [{},{}],
+    // Tag列表页
+    tagList: [{},{}]
+  },
+  // 研究所相关的数据结构
+  paperList: {
+    //研究所列表页
+    list: [{},{}]
+  } 
 }
 </code></pre>
 
@@ -339,13 +339,13 @@
 </ul>
 
 <pre><code class="language-js">{
-	// 文章相关的数据结构，显然id=3的文章数据冗余了一份
-	articles: {
-        // 首页列表页
-        list: [{ id: 1, title: xxx }, { id: 3, title: xxx }],
-        // Tag列表页
-        tagList: [{ id: 2, title: xxx }, { id: 3, title: xxx }]
-    }
+  // 文章相关的数据结构，显然id=3的文章数据冗余了一份
+  articles: {
+    // 首页列表页
+    list: [{ id: 1, title: xxx }, { id: 3, title: xxx }],
+    // Tag列表页
+    tagList: [{ id: 2, title: xxx }, { id: 3, title: xxx }]
+  }
 }
 </code></pre>
 
@@ -357,18 +357,18 @@
 // 其次是question表，包含question的相关信息，以及一个option数组
 // 最后才是option表，包含option的相关信息。
 papers: [{
-   id: xxx,
+  id: xxx,
+  title: xxx,
+  questions: [{
+    id: xxx,
     title: xxx,
-    questions: [{
-        id: xxx,
-        title: xxx,
-        sequence: xxx,
-        options: [{
-            id: xxx,
-            title: xxx,
-            sequence: xxx
-        }]
-    }] 
+    sequence: xxx,
+    options: [{
+      id: xxx,
+      title: xxx,
+      sequence: xxx
+    }]
+   }] 
 }]
 </code></pre>
 
@@ -381,26 +381,26 @@ papers: [{
 <pre><code class="language-js">// 扁平化之后的数据
 papers: [id1, id2]
 papersHash: {
-    id1: {
-        id: xxx,
-        title: xxx,
-        questions: [id1, id2]
-    }
+  id1: {
+    id: xxx,
+    title: xxx,
+    questions: [id1, id2]
+  }
 }
 questionsHash: {
-    id1: {
-        id: xxx,
-        title: xxx,
-        sequence: xxx,
-        options: [id1, id2]
-    }
+  id1: {
+    id: xxx,
+    title: xxx,
+    sequence: xxx,
+    options: [id1, id2]
+  }
 }
 optionsHash: {
-    id1: {
-        id: xxx,
-        title: xxx,
-        sequence: xxx
-    }
+  id1: {
+  id: xxx,
+  title: xxx,
+  sequence: xxx
+  }
 }
 </code></pre>
 
@@ -421,12 +421,12 @@ const optionSchema =new Schema(&quot;options&quot;);
 
 // 声明paper.quesitons字段，是一个questionSchema的数组
 paperSchema.define({
-	questions:arrayOf(questionSchema);
+  questions:arrayOf(questionSchema);
 });
 
 // 声明question.options字段，是一个optionsSchema的数组
 questionSchema.define({
-    options: arrayOf(optionsSchema)
+  options: arrayOf(optionsSchema)
 });
 
 // 比如我们获取到的数据是papers
@@ -434,18 +434,18 @@ let normalizeData = normalize(papers, arrayOf(paperSchema));
 
 // 最后得到的normalizeData结果就是
 // normalizeData = {
-//     result: [id1, id2, ...],
-//     entities: {
-//         papers: {
-//             id1: {}
-//         },
-//         questions: {
-//             id1: {}
-//         },
-//         options: {
-//             id1: {}
-//         }
-//     }
+//   result: [id1, id2, ...],
+//   entities: {
+//     papers: {
+//       id1: {}
+//     },
+//     questions: {
+//       id1: {}
+//     },
+//     options: {
+//        id1: {}
+//      }
+//   }
 // }
 
 </code></pre>

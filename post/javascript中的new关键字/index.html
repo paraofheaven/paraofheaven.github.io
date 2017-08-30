@@ -267,14 +267,14 @@
 
 <p>先看如下代码：</p>
 
-<pre><code class="language-js">	function classA(){
-		this.name=1;
-	}
-	classA.prototype.show = function(){
-		alert(this.name)
-	}
-	var b =new classA();
-	b.show();
+<pre><code class="language-js">  function classA(){
+    this.name=1;
+  }
+  classA.prototype.show = function(){
+    alert(this.name)
+  }
+  var b =new classA();
+  b.show();
 </code></pre>
 
 <p><code>var b =new classA();</code></p>
@@ -300,9 +300,9 @@
 
 <p>再用下面的代码来理解</p>
 
-<pre><code class="language-js">	var b={};
-	b.__proto__ =classA.prototype;
-	classA.call(b);
+<pre><code class="language-js">  var b={};
+  b.__proto__ =classA.prototype;
+  classA.call(b);
 </code></pre>
 
 <p>最后再用一句话总结：new关键字以classA()为模板创建了一个新的对象，它复制了classA构造器中的所有成员变量，同时this指向新创建的对象。</p>
@@ -312,7 +312,7 @@
 <p>1 如果构造函数内没有返回值，则默认是返回this（当前上下文），要不然就返回<strong>任意非原始类型值</strong>。
 2 如果不用new关键字，如</p>
 
-<pre><code class="language-js">	var b = classA();
+<pre><code class="language-js">  var b = classA();
 </code></pre>
 
 <p><strong>则classA值会返回undefined</strong>,并且<strong>this(执行上下文)是window对象</strong>。
@@ -327,11 +327,11 @@
 
 <p>如下面代码：</p>
 
-<pre><code class="language-js">	function classA(){
-		this.name=1;
-	}
-	classA();
-	console.log(name);
+<pre><code class="language-js">  function classA(){
+    this.name=1;
+  }
+  classA();
+  console.log(name);
 </code></pre>
 
 <p>此时输出<code>1</code></p>
