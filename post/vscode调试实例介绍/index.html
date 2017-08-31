@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.26" />
 
-  <title>Tags &middot; ParaOfHeaven</title>
+  <title>vscode调试实例介绍 &middot; ParaOfHeaven</title>
 
   
   
@@ -36,8 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="ParaOfHeaven" href="https://paraofheaven.github.io/tags/index.xml" />
   
 
   
@@ -114,10 +112,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://paraofheaven.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -229,108 +223,114 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>vscode调试实例介绍</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>31 Aug 2017, 16:48</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="react">react</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="javascript">javascript</a>
-      <span>&#40;3&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/vscode">vscode</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://paraofheaven.github.io/tags/debugger">debugger</a>
+    
+  </div>
   
-    <li>
-      <a href="ast">ast</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="blackburn">blackburn</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+</div>
+
+  <p>In company on 2017-08-31 by para</p>
+
+<p><img src="https://code.visualstudio.com/home/home-screenshot-mac.png" alt="" /></p>
+
+<h3 id="前言">前言:</h3>
+
+<p>前段时间，我做了一个很重要的决定，离职了并将工作地点移到了上海。加入了新的团队，一切都像从新开始一样。但是一些工作的习惯还是需要我做出一些调整的地方。这其中有个很重要的变化，开发工具需要从webstorm变成vscode了，这倒不是老大强制要求的，但是，我认为遵循一些团队性的规范和约定，能够避免很多浪费时间的useless bug(浪费时间而且解决了也不会提高技术性的bug，比如java中的环境变量的配置)。</p>
+
+<h3 id="从开始说起">从开始说起</h3>
+
+<p>
+webstorm的功能集成的非常强大，如果对优雅型编程不那么敏感的小伙伴们可以去<a href="http://www.jetbrains.com/webstorm/features/">这里</a>看看它是否符合你的心意，一个高度集成化的工具，号称最智能的javascript编辑器了，唯一的缺点是，如果项目很大，启动一个项目将会变得非常迟缓，这在以即时性为特征的前端，几乎是不可忽略的弊端，所幸JetBean也意识到了这点，并开始做出内存优化的工作。</p>
+
+<p>我们团队目前以vscode编辑器为主要开发工具。目前vsc已经开源，<a href="https://github.com/Microsoft/vscode">相关代码</a>,
+<a href="http://blogs.msdn.com/b/vscode/?Redirected=true">官方博客</a>,<a href="https://github.com/Microsoft/vscode-go">支持Go</a>。</p>
+
+<h3 id="node项目调试">node项目调试</h3>
+
+<p>vscode调试的依赖其实只有一个<strong>launch.json</strong>文件，就像webpack依赖webpack.config.js和gulp依赖gulpfile一样，<strong>launch.json</strong>是vscode调试的配置文件。
+首先要说明的一点是，目前vscode默认不会生成launch.json文件。所以我们需要找到方法去生成它，虽然你可以手动在.vscode文件夹下建一个名为launch.json的文件，但是我们有更简单的办法，为什么不用简单的办法呢。</p>
+
+<p>首先，点击界面左边列表的第四个图标进入调试界面
+<img src="http://ov7v7riu9.bkt.clouddn.com/debug.png" alt="" /></p>
+
+<p>然后添加配置，默认添加node.js进程,如果你想添加gulp,mocha,npm等等进程，后面也会有地方给你修改
+<img src="http://ov7v7riu9.bkt.clouddn.com/debug1.png-middle" alt="" /></p>
+
+<p>现在.vscode目录下已存在<strong>launch.json</strong>文件了，现在需要修改<strong>launch.json</strong>的内容。</p>
+
   
-    <li>
-      <a href="debugger">debugger</a>
-      <span>&#40;1&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://paraofheaven.github.io/post/spf13-vim-3-0-release-and-new-website/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://paraofheaven.github.io/post/spf13-vim-3-0-release-and-new-website/">Start a Hugo Blog In BlackBurn Feeling</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="hugo">hugo</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="immutable">immutable</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="lint">lint</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="new">new</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="pattern">pattern</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="shot">shot</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="state">state</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="vscode">vscode</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E6%97%85%E8%A1%8C">旅行</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E6%A8%A1%E5%9D%97%E5%8C%96">模块化</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%94%9F%E6%B4%BB">生活</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%BC%93%E5%AD%98">缓存</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%BF%BB%E8%AF%91">翻译</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E9%97%AD%E5%8C%85">闭包</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -353,3 +353,4 @@
 
 </body>
 </html>
+

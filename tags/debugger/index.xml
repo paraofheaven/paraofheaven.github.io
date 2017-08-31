@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugger on ParaOfHeaven</title>
+    <link>https://paraofheaven.github.io/tags/debugger/</link>
+    <description>Recent content in Debugger on ParaOfHeaven</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 31 Aug 2017 16:48:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://paraofheaven.github.io/tags/debugger/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vscode调试实例介绍</title>
+      <link>https://paraofheaven.github.io/post/vscode%E8%B0%83%E8%AF%95%E5%AE%9E%E4%BE%8B%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 31 Aug 2017 16:48:42 +0800</pubDate>
+      
+      <guid>https://paraofheaven.github.io/post/vscode%E8%B0%83%E8%AF%95%E5%AE%9E%E4%BE%8B%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;p&gt;In company on 2017-08-31 by para&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://code.visualstudio.com/home/home-screenshot-mac.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;前言&#34;&gt;前言:&lt;/h3&gt;
+
+&lt;p&gt;前段时间，我做了一个很重要的决定，离职了并将工作地点移到了上海。加入了新的团队，一切都像从新开始一样。但是一些工作的习惯还是需要我做出一些调整的地方。这其中有个很重要的变化，开发工具需要从webstorm变成vscode了，这倒不是老大强制要求的，但是，我认为遵循一些团队性的规范和约定，能够避免很多浪费时间的useless bug(浪费时间而且解决了也不会提高技术性的bug，比如java中的环境变量的配置)。&lt;/p&gt;
+
+&lt;h3 id=&#34;从开始说起&#34;&gt;从开始说起&lt;/h3&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
