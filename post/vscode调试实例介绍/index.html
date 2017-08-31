@@ -282,7 +282,50 @@ webstorm的功能集成的非常强大，如果对优雅型编程不那么敏感
 <p>然后添加配置，默认添加node.js进程,如果你想添加gulp,mocha,npm等等进程，后面也会有地方给你修改
 <img src="http://ov7v7riu9.bkt.clouddn.com/debug1.png-middle" alt="" /></p>
 
-<p>现在.vscode目录下已存在<strong>launch.json</strong>文件了，现在需要修改<strong>launch.json</strong>的内容。</p>
+<p>现在.vscode目录下已存在<strong>launch.json</strong>文件了，现在需要修改<strong>launch.json</strong>的内容。
+这儿是一份详尽的配置文件示例，如果需要更详细的文档，请访问<a href="https://go.microsoft.com/fwlink/?linkid=830387">这儿</a></p>
+
+<pre><code>{
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  // List of configurations. Add new configurations or edit existing ones.
+  // ONLY &quot;node&quot; and &quot;mono&quot; are supported, change &quot;type&quot; to switch.
+  &quot;configurations&quot;: [{
+    // Name of configuration; appears in the launch configuration drop down menu.
+    &quot;name&quot;: &quot;Launch helloworld&quot;,
+    // Type of configuration. Possible values: &quot;node&quot;, &quot;mono&quot;.
+    &quot;type&quot;: &quot;node&quot;,
+    // Workspace relative or absolute path to the program.
+    &quot;program&quot;: &quot;examples/helloworld/bin/www&quot;,
+    // Automatically stop program after launch.
+    &quot;stopOnEntry&quot;: false,
+    // Command line arguments passed to the program.
+    &quot;args&quot;: [],
+    // Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
+    &quot;cwd&quot;: &quot;.&quot;,
+    // Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
+    &quot;runtimeExecutable&quot;: null,
+    // Optional arguments passed to the runtime executable.
+    &quot;runtimeArgs&quot;: [&quot;--nolazy&quot;],
+    // Environment variables passed to the program.
+    &quot;env&quot;: {
+      &quot;NODE_ENV&quot;: &quot;development&quot;
+    },
+    // Use JavaScript source maps (if they exist).
+    &quot;sourceMaps&quot;: false,
+    // If JavaScript source maps are enabled, the generated code is expected in this directory.
+    &quot;outDir&quot;: null
+  },
+  {
+    &quot;name&quot;: &quot;Attach&quot;,
+    &quot;type&quot;: &quot;node&quot;,
+    // TCP/IP address. Default is &quot;localhost&quot;.
+    &quot;address&quot;: &quot;localhost&quot;,
+    // Port to attach to.
+    &quot;port&quot;: 5858,
+    &quot;sourceMaps&quot;: false
+  }]
+}
+</code></pre>
 
   
 <div class="prev-next-post pure-g">
